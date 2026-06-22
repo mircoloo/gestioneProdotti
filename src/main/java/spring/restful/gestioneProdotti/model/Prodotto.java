@@ -15,6 +15,9 @@ public class Prodotto {
 	@Column(nullable=false, length=20)
 	private String codiceMerceologico;
 	
+	@Column(nullable=false, length=20)
+	private String nomeProdotto;
+	
 	@Column
 	private String descrizione;
 	
