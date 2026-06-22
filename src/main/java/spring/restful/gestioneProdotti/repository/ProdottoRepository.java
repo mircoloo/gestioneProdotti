@@ -13,4 +13,6 @@ public interface ProdottoRepository extends JpaRepository<Prodotto, Long>{
 	//findById(Long id)
 	//existsById(Long id)
 	//deleteById(Long id)
+	
+	public Prodotto findById(long id);
 }

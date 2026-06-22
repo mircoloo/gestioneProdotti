@@ -27,10 +27,12 @@ public class Prodotto {
 	@Column
 	private double prezzo;
 	
-	@Column(nullable=false, length=20)
-	private String marca;
+	@ManyToOne
+	@JoinColumn(name="id_marca", referencedColumnName="id")
+	private Marca marca;
 	
-	@Column(nullable=false, length=20)
-	private String categoria;
+	@ManyToOne
+	@JoinColumn(name="id_categoria", referencedColumnName="id")
+	private Categoria categoria;
 	
 }

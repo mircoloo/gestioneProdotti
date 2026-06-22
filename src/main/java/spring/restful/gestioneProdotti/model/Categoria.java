@@ -1,5 +1,7 @@
 package spring.restful.gestioneProdotti.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,4 +17,6 @@ public class Categoria {
 	@Column(nullable=false, length=20)
 	private String nomeCategoria;
 	
+	@OneToMany(mappedBy="categoria")
+	private List<Prodotto> prodotti;
 }

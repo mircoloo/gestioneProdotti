@@ -1,6 +1,7 @@
 package spring.restful.gestioneProdotti.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import spring.restful.gestioneProdotti.repository.ProdottoRepository;
 
 @RestController
 @RequestMapping("/api/prodotti")
+@CrossOrigin("*")
 public class ProdottoController {
 		
 	@Autowired //DI: Dependency Injection
@@ -32,8 +34,14 @@ public class ProdottoController {
 		return pr.findAll();
 	}
 	
+	@GetMapping("/leggi/{id}")
+	public Prodotto leggi(@PathVariable long id) {
+		return pr.findById(id);
+	}
+	
 	@PutMapping("/aggiorna")
-	public String aggiorna() {
+	public String aggiorna(@RequestBody Prodotto prodotto) {
+		pr.save(prodotto);
 		return "Modifica avvenuta con successo";
 	}
 	
